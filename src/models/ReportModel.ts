@@ -13,7 +13,8 @@ export class ReportModel {
         B: 80,
         C: 70,
         D: 60,
-        F: 50,
+        E: 50,
+        F: 40,
       },
       behavior: {
         cooperative: "Excellent",
