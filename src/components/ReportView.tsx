@@ -21,8 +21,12 @@ Font.register({
 });
 
 Font.register({
-  family: "Montserrat",
+  family: "MontserratLight",
   src: "../../public/assets/fonts/Montserrat-light.ttf",
+});
+Font.register({
+  family: "MontserratReg",
+  src: "../../public/assets/fonts/Montserrat-ExtraBold.ttf",
 });
 
 // Define styles for PDF
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
     color: "#46617B",
   },
   text: {
-    fontFamily: "Montserrat",
+    fontFamily: "MontserratLight",
     fontSize: 16,
     paddingLeft: 10,
     fontColor: "#46617B",
@@ -83,13 +87,13 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   listItem: {
-    fontFamily: "Montserrat",
+    fontFamily: "MontserratLight",
     fontSize: 16,
     marginBottom: 10,
   },
   gradingSystemContainer: {
     marginTop: 40,
-    marginBottom: 20,
+    marginBottom: 0,
     color: "#46617B",
     padding: 20,
   },
@@ -107,12 +111,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   header: {
-    fontSize: 16,
-    // marginBottom: 8,
+    fontFamily: "MontserratReg",
+    fontSize: 14,
     color: "#ffffff",
     backgroundColor: "#46617B",
     padding: 10,
-    fontWeight: "bold",
+    fontWeight: "ultrabold",
   },
   row: {
     flexDirection: "row",
@@ -126,9 +130,9 @@ const styles = StyleSheet.create({
   firstColumn: {
     fontSize: 12,
     textAlign: "left",
-    color: "#000",
+    color: "gray",
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 6,
     flexGrow: 3, // First column takes up 3 parts
     borderRight: 1,
     borderRightColor: "#46617B",
@@ -165,35 +169,32 @@ export const ReportView: React.FC<ReportViewProps> = ({ data }) => {
 
           <View style={styles.gradingSystemContainer}>
             <Text style={styles.gradingSystemTitle}>GRADING SYSTEM:</Text>
+
+            {/* looop */}
             <View style={styles.gradingRow}>
-              <Text style={styles.gradeItem}>A {data.grades.A}</Text>
-              <Text style={styles.gradeItem}>C {data.grades.C}</Text>
-              <Text style={styles.gradeItem}>E {data.grades.E}</Text>
+              {/* loop on only first three */}
+              {Object.entries(data.grades)
+                .slice(0, 3)
+                .map(([key, value]) => (
+                  <Text style={styles.gradeItem}>
+                    {key} {value}
+                  </Text>
+                ))}
             </View>
             <View style={styles.gradingRow}>
-              <Text style={styles.gradeItem}>B {data.grades.B}</Text>
-              <Text style={styles.gradeItem}>D {data.grades.D}</Text>
-              <Text style={styles.gradeItem}>F {data.grades.F}</Text>
+              {/* loop on only last three */}
+              {Object.entries(data.grades)
+                .slice(3, 6)
+                .map(([key, value]) => (
+                  <Text style={styles.gradeItem}>
+                    {key} {value}
+                  </Text>
+                ))}
             </View>
-            {/* Repeat the pattern if you have more grades */}
           </View>
 
           {/* Behavior Section */}
           <Text style={styles.header}>BEHAVIOR</Text>
-          {/* <View style={[styles.row]}>
-            <Text style={styles.firstColumn}>Cooperative</Text>
-            <Text style={styles.secondColumn}>{data.behavior.cooperative}</Text>
-          </View>
-          <View style={[styles.row]}>
-            <Text style={styles.firstColumn}>Neat and orderly</Text>
-            <Text style={styles.secondColumn}>
-              {data.behavior.neatAndOrderly}
-            </Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.firstColumn}>Responsible</Text>
-            <Text style={styles.secondColumn}>{data.behavior.responsible}</Text>
-          </View> */}
 
           {/* loop */}
           {Object.entries(data.behavior).map(([key, value]) => (
