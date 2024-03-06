@@ -1,0 +1,28 @@
+{
+    "report": "تقرير",
+    "name": "الاسم",
+    "level": "المستوى",
+    "behavior": "السلوك",
+    "reportContoller": {
+        "loading": "جار التحميل...",
+        "noData": "لا توجد بيانات متاحة",
+        "error": "خطأ",
+        "download": "تحميل"
+    },
+    "cooperative": "Cooperative",
+    "neatAndOrderly": "Neat and Orderly",
+    "responsible": "Responsible",
+    "GermanII": "German II",
+    "SocialStudies": "Social Studies",
+    "WorldHistory": "World History",
+    "Geometry": "Geometry",
+    "Computer": "Computer",
+    "English": "English",
+    "grades": "Grades",
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D",
+    "E": "E",
+    "F": "F"
+}

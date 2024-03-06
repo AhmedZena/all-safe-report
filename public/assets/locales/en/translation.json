@@ -1,0 +1,28 @@
+{
+    "report": "Report",
+    "name": "Name",
+    "level": "Level",
+    "behavior": "Behavior",
+    "reportContoller": {
+        "loading": "Loading...",
+        "noData": "No data available",
+        "error": "Error",
+        "download": "Download"
+    },
+    "cooperative": "Cooperative",
+    "neatAndOrderly": "Neat and Orderly",
+    "responsible": "Responsible",
+    "GermanII": "German II",
+    "SocialStudies": "Social Studies",
+    "WorldHistory": "World History",
+    "Geometry": "Geometry",
+    "Computer": "Computer",
+    "English": "English",
+    "grades": "Grades",
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D",
+    "E": "E",
+    "F": "F"
+}
