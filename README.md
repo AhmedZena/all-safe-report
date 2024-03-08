@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# All-safe-report Project Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project, named `All-safe-report,` is an MVC (Model-View-Controller) structured application focusing on displaying reports in PDF format and download them too.
+It supports internationalization (i18n) for right-to-left (RTL) languages and features dynamic report display functionalities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To set up the project:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install     # Installs all the dependencies
+npm run dev     # Starts the development server
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Usage
+
+`App.tsx` incorporates a `PDFViewer` from `@react-pdf/renderer` for displaying the report. Data is fetched from `ReportView.json` which is expected to be in the `public/data/` directory.
+
+## Scripts
+
+- `npm run dev`: Start the development server with Vite.
+- `npm run build`: Compile TypeScript and build the app for production.
+
+## MVC Architecture
+
+This project adheres to the MVC architecture, separating the logic into distinct layers for more efficient development and maintenance.
+
+## Dependencies
+
+Key dependencies include:
+
+- `@react-pdf/renderer`: For rendering PDFs.
+- `i18next` suite: For internationalization support.
+- `React`: For UI components.
+
+## Contributing
+
+Follow these steps to contribute:
+
+1. Fork the repo.
+2. Create a new feature branch.
+3. Commit changes.
+4. Push to the branch.
+5. Open a pull request.
+
+## Screenshots
+
+![Screenshot](./public/assets/imgs/screenshots/121.png)
+
+![Screenshot](./public/assets/imgs/screenshots/123.png)
+
+![Screenshot](./public/assets/imgs/screenshots/124.png)
+
+## Portfolio
+
+[Ahmed zena](ahmedzena.com)
