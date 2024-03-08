@@ -1,0 +1,25 @@
+{
+    "name": "Ahmed Gamal Zena",
+    "level": "Grade 10",
+    "grades": {
+        "A": 90,
+        "B": 80,
+        "C": 70,
+        "D": 60,
+        "E": 50,
+        "F": 40
+    },
+    "behavior": {
+        "cooperative": "Excellent",
+        "neatAndOrderly": "Good",
+        "responsible": "Excellent"
+    },
+    "academicPerformance": {
+        "GermanII": "A",
+        "SocialStudies": "B",
+        "WorldHistory": "C",
+        "Geometry": "A",
+        "Computer": "B",
+        "English": "A"
+    }
+}

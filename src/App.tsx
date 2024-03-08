@@ -4,55 +4,55 @@ import Navbar from "./components/Navbar";
 import { ReportController } from "./controllers/ReportController";
 import { useTranslation } from "react-i18next";
 import { ReportView } from "./components/ReportView";
-import { ReportData } from "./types/ReportData";
-import { useState } from "react";
-interface ReportViewProps {
-  data: ReportData;
-}
+import { ReportData } from "./types/ReportData"; // Add the correct path to the JSON file
+import { useState, useEffect } from "react";
+
 function App() {
   const { i18n } = useTranslation();
   const isRTL = i18n.dir() === "rtl";
   const [showReport, setShowReport] = useState(false);
-  // <div dir={isRTL ? "rtl" : "ltr"}>
-  {
-    /* <Navbar />
-    <div className="App">
-      <ReportController />
-    </div> */
-  }
+  const [reportData, setReportData] = useState<ReportData | null>(null);
+
+  useEffect(() => {
+    // Fetch report data from a local JSON file
+    const fetchReportData = async () => {
+      try {
+        const response = await fetch("../public/data/ReportView.json"); // Add the correct path to the JSON file
+        if (response.ok) {
+          const data = await response.json();
+          setReportData(data);
+        } else {
+          console.error("Error fetching report data:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching report data:", error);
+      }
+    };
+
+    fetchReportData();
+  }, []);
+
+  const handleShowReport = () => {
+    setShowReport(!showReport);
+  };
+
   return (
-    <>
+    <div dir={isRTL ? "rtl" : "ltr"}>
       <Navbar />
-      <div className="App">
-        <ReportController />
+      <div className="reprt-view">
+        <div className="download-report">
+          <ReportController />
+        </div>
+        <button className="toggle-report" onClick={handleShowReport}>
+          {showReport ? "Hide Report" : "Show Report"}
+        </button>
+        {showReport && reportData && (
+          <PDFViewer width={1000} height={600}>
+            <ReportView data={reportData} />
+          </PDFViewer>
+        )}
       </div>
-      <button onClick={() => setShowReport(!showReport)}>Toggle Report</button>
-      {showReport && (
-        <PDFViewer width={1000} height={600}>
-          <ReportView
-            data={{
-              name: "Ahmed Gamal Zena",
-              level: "Grade 10",
-              grades: { A: 90, B: 80, C: 70, D: 60, E: 50, F: 40 },
-              behavior: {
-                cooperative: "Excellent",
-                neatAndOrderly: "Good",
-                responsible: "Excellent",
-              },
-              academicPerformance: {
-                GermanII: "A",
-                SocialStudies: "B",
-                WorldHistory: "C",
-                Geometry: "A",
-                Computer: "B",
-                English: "A",
-              },
-            }}
-          />
-        </PDFViewer>
-      )}
-    </>
-    // </div>
+    </div>
   );
 }
 

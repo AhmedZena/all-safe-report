@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import logo from "../../public/assets/imgs/logo.png";
 
 const Navbar = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "ar" : "en";
@@ -13,7 +13,10 @@ const Navbar = () => {
   return (
     <nav style={styles.navbar}>
       <img src={logo} alt="Logo" style={styles.logo} />
-      <span style={styles.title}>Your App Name</span>
+      <span style={styles.title}>
+        {/* Ahmed Gamal Zena */}
+        {t("title")}
+      </span>
       <button onClick={toggleLanguage} style={styles.languageButton}>
         {i18n.language.toUpperCase()}
       </button>
@@ -39,7 +42,7 @@ const styles = {
     textAlign: "center" as "center",
   },
   languageButton: {
-    padding: "10px",
+    // padding: "10px",
     backgroundColor: "#555",
     color: "white",
     border: "none",

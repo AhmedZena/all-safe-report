@@ -2,34 +2,18 @@
 import { ReportData } from "../types/ReportData";
 
 export class ReportModel {
-  // In a real app, you might fetch this data from an API
-  static getReportData(): ReportData {
-    // Fake JSON data
-    const data: ReportData = {
-      name: "Will retrieved from database as JSON",
-      level: "Level 1",
-      grades: {
-        A: 90,
-        B: 80,
-        C: 70,
-        D: 60,
-        E: 50,
-        F: 40,
-      },
-      behavior: {
-        cooperative: "Excellent",
-        neatAndOrderly: "Good",
-        responsible: "Excellent",
-      },
-      academicPerformance: {
-        GermanII: "A",
-        SocialStudies: "B",
-        WorldHistory: "A",
-        Geometry: "B",
-        Computer: "A",
-        English: "B",
-      },
-    };
-    return data;
+  static async getReportData(): Promise<ReportData> {
+    try {
+      // Assuming the JSON file is stored in the public directory and named report-data.json
+      const response = await fetch("../../public/data/ReportView.json");
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
+      const data: ReportData = await response.json();
+      return data;
+    } catch (error) {
+      console.error("There was a problem fetching the report data:", error);
+      throw error; // Re-throwing the error for the caller to handle it
+    }
   }
 }
